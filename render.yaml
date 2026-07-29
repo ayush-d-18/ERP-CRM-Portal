@@ -10,3 +10,12 @@ services:
         value: production
       - key: DATABASE_URL
         sync: false
+
+  - type: static_site
+    name: erp-frontend
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    publishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://your-backend-url.onrender.com/api
