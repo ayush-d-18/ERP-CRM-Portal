@@ -10,11 +10,13 @@ services:
         value: production
       - key: DATABASE_URL
         sync: false
+      - key: CORS_ORIGIN
+        value: https://frontend-erp-cpd3.onrender.com
 
   - type: static_site
     name: erp-frontend
-    buildCommand: npm install && npm run build
-    publishPath: dist
+    buildCommand: cd /opt/render/project && npm install && npm run build
+    publishPath: /opt/render/project/dist
     envVars:
       - key: VITE_API_URL
-        value: https://your-backend-url.onrender.com/api
+        value: https://backend-erp-p8ct.onrender.com/api
