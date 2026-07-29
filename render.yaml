@@ -13,7 +13,6 @@ services:
 
   - type: static_site
     name: erp-frontend
-    rootDir: frontend
     buildCommand: npm install && npm run build
     publishPath: dist
     envVars:
