@@ -300,7 +300,7 @@ router.post(
         });
       }
 
-      await prisma.$transaction(async (tx) => {
+      await prisma.$transaction(async (tx: any) => {
         for (const item of challan.items as any[]) {
           await tx.product.update({
             where: { id: item.productId },
@@ -364,7 +364,7 @@ router.post(
       }
 
       if (challan.status === "CONFIRMED") {
-        await prisma.$transaction(async (tx) => {
+        await prisma.$transaction(async (tx: any) => {
           for (const item of challan.items as any[]) {
             await tx.product.update({
               where: { id: item.productId },
